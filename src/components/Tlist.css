@@ -1,0 +1,56 @@
+.tshirt-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.tshirt-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.tshirt-item h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tshirt-item p {
+  margin: 5px 0;
+}
+
+.tshirt-item div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.tshirt-item button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tshirt-item button:hover {
+  background-color: #0056b3;
+}
+
+.tshirt-item button:active {
+  background-color: #003f7f;
+}
+
+.tshirt-item button:focus {
+  outline: none;
+}

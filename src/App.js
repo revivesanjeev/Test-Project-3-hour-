@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useContext } from "react";
+import { TShirtProvider, TShirtContext } from "./components/TContext";
+import AddProduct from "./components/AddProduct";
+import TList from "./components/TList";
+import Cart from "./components/Cart";
+import "./App.css";
 
-function App() {
+const AppContent = () => {
+  const [isCartVisible, setIsCartVisible] = useState(false);
+  const { totalItems } = useContext(TShirtContext);
+
+  const toggleCartVisibility = () => {
+    setIsCartVisible(!isCartVisible);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>T-Shirt Store</h1>
+      <AddProduct />
+      <TList />
+      <div className="cart-container">
+        <button className="cart-button" onClick={toggleCartVisibility}>
+          Cart <span className="badge">{totalItems}</span>
+        </button>
+      </div>
+      {isCartVisible && (
+        <div className="overlay">
+          <div className="overlay-content">
+            <button className="close-button" onClick={toggleCartVisibility}>
+              Close
+            </button>
+            <Cart />
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+const App = () => (
+  <TShirtProvider>
+    <AppContent />
+  </TShirtProvider>
+);
 
 export default App;
